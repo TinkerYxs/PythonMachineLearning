@@ -10,7 +10,11 @@ Author:     Crifan Li
 Version:    2012-12-29
 Contact:    admin at crifan dot com
 """
-  
+
+s="baidu ZHIDAO"
+print(s.upper()+"\n")
+print(s.lower()+"\n")
+print(s.swapcase()+"\n")
 #import platform;
 
 print ("Hello, Python!");
