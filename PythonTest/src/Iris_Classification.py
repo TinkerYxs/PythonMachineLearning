@@ -102,24 +102,3 @@ print("Test set predictions:\n{}".format(y_pred))
 print("Test set score:{:.2f}".format(np.mean(y_pred==y_test)))
 
 print("Test set score:{:.2f}".format(knn.score(X_test,y_test))) 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
