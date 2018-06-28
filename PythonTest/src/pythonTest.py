@@ -17,15 +17,15 @@ print ("Hello, Python!");
  
 #print ("Current platform.uname() in Ecplise+PyDev=" ),platform.uname();
 
-#temp = input("please enter a number:\n");
+temp = input("please enter a number:\n");
 
-#number=int(temp);
+number=int(temp);
 
-#if number == 8:
-#    print("ok!");
-#else:
-#    print("no");
-#print("--------------------------------------------------");
+if number == 8:
+    print("ok!");
+else:
+    print("no");
+print("--------------------------------------------------");
 
 import sys
 print("Python version:{}".format(sys.version))
