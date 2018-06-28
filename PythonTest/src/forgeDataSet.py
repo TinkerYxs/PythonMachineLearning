@@ -30,3 +30,10 @@ mglearn.plots.plot_knn_classification(n_neighbors=3)
 plt.show()
 
 
+from sklearn.model_selection import train_test_split
+
+X,y = mglearn.datasets.make_forge()
+
+
+
+
