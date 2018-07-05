@@ -10,7 +10,6 @@ import mglearn
 import matplotlib.pyplot as plt
 
 
-
 X,y = mglearn.datasets.make_forge()
 fig,axes = plt.subplots(1, 2, figsize=(10,3))
 
@@ -18,11 +17,11 @@ for model, ax in zip([LinearSVC(),LogisticRegression()],axes):
     clf = model.fit(X,y)
     mglearn.plots.plot_2d_separator(clf,X,fill=False,eps=0.5,ax=ax,alpha=.7)
     mglearn.discrete_scatter(X[:,0],X[:,1],y,ax=ax)
-    ax.set_title("{}".format(clf))##这里有错 找不出来，clf._class_._name_
+    
+    ax.set_title("{}".format(clf.__class__.__name__))##这里有错 找不出来，clf._class_._name_###注意是双2下划线获取函数名
     ax.set_xlabel("Feature 0")
     ax.set_ylabel("Feature 1")
 axes[0].legend()
-
 plt.show()
 
 
@@ -74,6 +73,22 @@ plt.legend()
 plt.show()
 
 
+##不同C值，L1惩罚的logistic回归
+
+for C,maker in zip([0.001,1,100],['o','^','v']):
+    lr_l1 = LogisticRegression(C=C,penalty="l1").fit(X_train, y_train)
+    print("Training accuracy of l1 logreg with C={:.3f}:{:.2f}".format(C,lr_l1.score(X_train,y_train))) 
+    print("Test accuracy of l1 logreg with C={:.3f}:{:.2f}".format(C,lr_l1.score(X_test,y_test)))
+
+    plt.plot(lr_l1.coef_.T,maker,label="C={:.3f}".format(C))
+    plt.xticks(range(cancer.data.shape[1]),cancer.feature_names,rotation=90)
+    plt.hlines(0,0,cancer.data.shape[1])
+    plt.xlabel("Coefficient index")
+    plt.ylabel("Coefficient magnitude")
+    plt.ylim(-7,7)
+    plt.tight_layout(pad=0.4)
+    plt.legend(loc=3)
+plt.show()
 
 
 
