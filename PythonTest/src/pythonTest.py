@@ -15,6 +15,9 @@ s="baidu ZHIDAO"
 print(s.upper()+"\n")
 print(s.lower()+"\n")
 print(s.swapcase()+"\n")
+
+
+print("hello")
 #import platform;
 
 print ("Hello, Python!");
